@@ -1,6 +1,6 @@
-# Dungeon do Saber
+# Logic  Dungeon
 
-**Dungeon do Saber: O Grimório de Cristal** é um jogo educativo arcade desenvolvido em HTML, CSS e JavaScript. O jogador controla um mago dentro de uma arena, lê uma pergunta exibida no alto da tela e atira somente na runa que contém a resposta correta.
+**Logic Dungeon: O Grimório de Cristal** é um jogo educativo arcade desenvolvido em HTML, CSS e JavaScript. O jogador controla um mago dentro de uma arena, lê uma pergunta exibida no alto da tela e atira somente na runa que contém a resposta correta.
 
 O projeto combina revisão de conteúdos escolares com uma dinâmica de ação: cada pergunta gera uma onda de criaturas, e o jogador precisa mirar, desviar e responder antes que os inimigos alcancem o personagem.
 
@@ -70,7 +70,7 @@ pontos = 100 × combo
 ```text
 Jogos Arcade/
 ├── dungeon_do_saber.html   # Interface, estilos, renderização e lógica do jogo
-├── pergunats.js            # Banco de perguntas e respostas
+├── perguntas.js            # Banco de perguntas e respostas
 └── README.md               # Documentação do projeto
 ```
 
@@ -92,10 +92,10 @@ Jogos Arcade/
 O HTML carrega o banco externo antes do código principal:
 
 ```html
-<script src="pergunats.js"></script>
+<script src="perguntas.js"></script>
 ```
 
-### `pergunats.js`
+### `perguntas.js`
 
 Contém o array global `PERGUNTAS`, que é consumido pelo jogo quando uma nova onda é criada.
 
@@ -125,7 +125,7 @@ As alternativas devem ser curtas, preferencialmente com até 12 caracteres, pois
 
 ## Como adicionar perguntas
 
-1. Abra `pergunats.js`.
+1. Abra `perguntas.js`.
 2. Copie uma pergunta existente.
 3. Altere o enunciado, as alternativas, a explicação e a matéria.
 4. Coloque a resposta correta na primeira posição do array `a`.
@@ -143,7 +143,7 @@ Exemplo:
 }
 ```
 
-Não é necessário modificar o HTML para adicionar ou editar perguntas, desde que `pergunats.js` permaneça na mesma pasta de `dungeon_do_saber.html`.
+Não é necessário modificar o HTML para adicionar ou editar perguntas, desde que `perguntas.js` permaneça na mesma pasta de `dungeon_do_saber.html`.
 
 ## Tecnologias utilizadas
 
@@ -208,7 +208,7 @@ O servidor deve ser iniciado dentro da pasta do projeto.
 
 Para alterar a aparência ou as regras do jogo, edite `dungeon_do_saber.html`.
 
-Para alterar o conteúdo educacional, edite somente `pergunats.js`.
+Para alterar o conteúdo educacional, edite somente `perguntas.js`.
 
 Ao modificar a lógica, os pontos principais são:
 
@@ -221,7 +221,7 @@ Ao modificar a lógica, os pontos principais são:
 
 ## Observações
 
-- O arquivo `pergunats.js` deve permanecer com esse nome e na mesma pasta do HTML.
+- O arquivo `perguntas.js` deve permanecer com esse nome e na mesma pasta do HTML.
 - O banco é carregado como um script JavaScript comum no navegador.
 - As perguntas são sorteadas aleatoriamente.
 - Atualmente, o campo `m` não força uma distribuição equilibrada entre matérias.
