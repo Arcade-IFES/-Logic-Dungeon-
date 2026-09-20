@@ -1,255 +1,80 @@
-# Logic  Dungeon
+# Logic Dungeon
 
-**Logic Dungeon: O Grimório de Cristal** é um jogo educativo arcade desenvolvido em HTML, CSS e JavaScript. O jogador controla um mago dentro de uma arena, lê uma pergunta exibida no alto da tela e atira somente na runa que contém a resposta correta.
-
-O projeto combina revisão de conteúdos escolares com uma dinâmica de ação: cada pergunta gera uma onda de criaturas, e o jogador precisa mirar, desviar e responder antes que os inimigos alcancem o personagem.
-
-## Funcionalidades
-
-- Arena 2D renderizada com HTML Canvas.
-- Perguntas de Matemática, Física, Química, Biologia, Português, História, Geografia, Filosofia, Inglês, Programação, Desenvolvimento Web, Dados, Redes e Sistemas.
-- Alternativas embaralhadas a cada rodada.
-- Uma alternativa correta identificada pela runa ciano.
-- Sistema de pontuação e combo.
-- Progressão por níveis com aumento gradual da velocidade dos inimigos.
-- Barra de vida, experiência e nível.
-- Dash com invulnerabilidade temporária.
-- Power-ups de cura e escudo.
-- Efeitos sonoros sintetizados pelo navegador com Web Audio API.
-- Efeitos visuais de partículas, brilho, tremor de tela e feedback de acerto ou erro.
-- Layout redimensionável para diferentes tamanhos de tela.
-- Banco de perguntas separado da lógica do jogo.
+**Logic Dungeon: O Grimório de Cristal** é um jogo educativo arcade feito com HTML, CSS e JavaScript. Responda perguntas, destrua as runas corretas e sobreviva às ondas de inimigos.
 
 ## Como jogar
 
-1. Abra o arquivo `dungeon_do_saber.html` em um navegador moderno.
-2. Clique em **ENTRAR NA MASMORRA**.
-3. Leia a pergunta no topo da arena.
-4. Mova o mago e mire com o mouse.
-5. Atire na runa ciano, que representa a resposta correta.
-6. Evite as runas coloridas incorretas e o contato com os inimigos.
-7. Continue acertando para aumentar o combo e avançar de nível.
-
-### Controles
+Abra [logic_dungeon.html](logic_dungeon.html) em um navegador moderno e clique em **ENTRAR NA MASMORRA**.
 
 | Ação | Controle |
 |---|---|
-| Mover para cima | `W` |
-| Mover para a esquerda | `A` |
-| Mover para baixo | `S` |
-| Mover para a direita | `D` |
+| Mover | `W`, `A`, `S`, `D` |
 | Mirar | Mouse |
 | Atirar | Botão esquerdo do mouse |
 | Usar dash | Barra de espaço |
 
-## Regras do jogo
+Leia a pergunta no topo da tela e atire apenas na runa que representa a resposta correta. Runa errada e contato com inimigos causam dano.
 
-- Cada onda contém uma pergunta e até quatro runas com alternativas.
-- A resposta correta é sempre a primeira alternativa do campo `a` no banco de perguntas.
-- As alternativas são embaralhadas antes de aparecerem na arena.
-- A runa correta aparece na cor ciano.
-- Acertar a resposta:
-  - destrói a onda;
-  - aumenta a pontuação;
-  - aumenta o combo;
-  - concede experiência;
-  - pode gerar um power-up.
-- Acertar uma resposta errada causa dano e reinicia o combo.
-- Ser atingido por um inimigo também causa dano.
-- Ao completar a experiência necessária, o jogador sobe de nível, recupera a vida e aumenta a vida máxima.
-- O jogo termina quando a vida chega a zero.
+## Recursos
 
-A pontuação de um acerto é calculada com base no combo atual:
+- Perguntas de diversas áreas do conhecimento.
+- Sistema de pontos, combo, experiência e níveis.
+- Dificuldade progressiva por fase.
+- Fase especial de chefe a cada 10 fases.
+- Chefes com três estágios e novas perguntas.
+- Dash, escudo e power-ups de cura.
+- Ranking local com iniciais, pontos, fase e combo.
+
+## Estrutura
 
 ```text
-pontos = 100 × combo
+.
+├── logic_dungeon.html       # Jogo, interface e lógica principal
+├── perguntas.js             # Banco de perguntas
+├── .github/workflows/       # Versionamento e releases automáticos
+└── README.md
 ```
 
-## Estrutura do projeto
+## Banco de perguntas
 
-```text
-Jogos Arcade/
-├── dungeon_do_saber.html   # Interface, estilos, renderização e lógica do jogo
-├── perguntas.js            # Banco de perguntas e respostas
-└── README.md               # Documentação do projeto
-```
-
-### `dungeon_do_saber.html`
-
-É o arquivo principal e pode ser aberto diretamente no navegador. Ele contém:
-
-- Estrutura HTML da tela inicial, HUD e tela de game over.
-- Estilos CSS da arena e dos elementos de interface.
-- Canvas de `1000 x 700` usado para desenhar o jogo.
-- Controle do jogador e movimentação com teclado.
-- Mira e disparos com o mouse.
-- Criação e atualização dos inimigos.
-- Detecção de colisões com runas, pilares e jogador.
-- Sistema de pontuação, combo, experiência e níveis.
-- Power-ups, partículas, efeitos sonoros e animações.
-- Loop principal baseado em `requestAnimationFrame`.
-
-O HTML carrega o banco externo antes do código principal:
-
-```html
-<script src="perguntas.js"></script>
-```
-
-### `perguntas.js`
-
-Contém o array global `PERGUNTAS`, que é consumido pelo jogo quando uma nova onda é criada.
-
-O campo `a[0]` deve ser sempre a resposta correta. O jogo usa os demais itens como respostas incorretas e embaralha todas as opções antes de exibi-las.
-
-## Formato de uma pergunta
+As perguntas ficam em `perguntas.js`. A resposta correta deve ser sempre o primeiro item do campo `a`:
 
 ```javascript
 {
   q: "Qual é a capital do Brasil?",
-  a: ["Brasília", "Rio", "São Paulo", "Salvador"],
-  e: "Brasília é a capital federal desde 1960.",
+  a: ["Brasília", "Rio de Janeiro", "São Paulo", "Salvador"],
+  e: "Brasília é a capital federal do Brasil.",
   m: "geografia"
 }
 ```
 
-### Campos disponíveis
-
-| Campo | Descrição | Uso atual |
-|---|---|---|
-| `q` | Enunciado da pergunta | Exibido no topo da arena |
-| `a` | Lista de alternativas | `a[0]` é a correta; todas são usadas no jogo |
-| `e` | Explicação da resposta | Reservado para feedback ou revisão futura |
-| `m` | Nome da matéria | Reservado para filtros ou sorteio equilibrado futuro |
-
-As alternativas devem ser curtas, preferencialmente com até 12 caracteres, pois aparecem acima das runas dentro da arena.
-
-## Como adicionar perguntas
-
-1. Abra `perguntas.js`.
-2. Copie uma pergunta existente.
-3. Altere o enunciado, as alternativas, a explicação e a matéria.
-4. Coloque a resposta correta na primeira posição do array `a`.
-5. Mantenha a vírgula entre os objetos.
-6. Salve o arquivo e recarregue o jogo.
-
-Exemplo:
-
-```javascript
-{
-  q: "Quanto é 2 + 2?",
-  a: ["4", "3", "5", "6"],
-  e: "A soma de 2 com 2 é 4.",
-  m: "matematica"
-}
-```
-
-Não é necessário modificar o HTML para adicionar ou editar perguntas, desde que `perguntas.js` permaneça na mesma pasta de `dungeon_do_saber.html`.
-
-## Tecnologias utilizadas
-
-- **HTML5**: estrutura da aplicação.
-- **CSS3**: layout, HUD, telas, cores e efeitos visuais.
-- **JavaScript**: regras, eventos, animações e gerenciamento do estado.
-- **Canvas 2D**: desenho da arena, jogador, inimigos, partículas e projéteis.
-- **Web Audio API**: geração dos efeitos sonoros.
-- **Google Fonts**: fontes `Fira Code` e `Press Start 2P`.
-
-## Fluxo principal do jogo
-
-```text
-Tela inicial
-    ↓
-Iniciar partida
-    ↓
-Sortear pergunta em PERGUNTAS
-    ↓
-Separar resposta correta e alternativas erradas
-    ↓
-Embaralhar e criar as runas
-    ↓
-Jogador atira em uma runa
-    ↓
-Acerto? ── sim ──> Pontos, combo, XP e nova onda
-    │
-    não
-    ↓
-Dano, perda do combo e remoção da runa
-    ↓
-Vida chega a zero?
-    ├── não ──> Continuar partida
-    └── sim ──> Tela de game over
-```
+Para adicionar uma pergunta, copie esse formato e mantenha a resposta correta na posição `a[0]`.
 
 ## Execução local
 
-O projeto não exige instalação de dependências ou processo de compilação.
+Não é necessário instalar dependências. O arquivo pode ser aberto diretamente no navegador.
 
-### Opção 1: abrir diretamente
-
-Abra `dungeon_do_saber.html` em um navegador como Chrome, Edge ou Firefox.
-
-### Opção 2: usar um servidor local
-
-Um servidor local pode ser útil durante o desenvolvimento. Exemplos:
+Para usar um servidor local:
 
 ```bash
 python -m http.server 8000
 ```
 
-Depois, acesse:
+Depois, acesse `http://localhost:8000/logic_dungeon.html`.
 
-```text
-http://localhost:8000/dungeon_do_saber.html
-```
+## Versionamento
 
-O servidor deve ser iniciado dentro da pasta do projeto.
-
-## Versionamento automático
-
-O workflow `.github/workflows/autotag.yml` cria uma tag no GitHub a cada push
-feito na branch `main`. A versão é incrementada automaticamente como `patch`,
-sem exigir palavras especiais na mensagem do commit:
+O workflow em `.github/workflows/autotag.yml` cria automaticamente uma nova tag e uma Release a cada push na branch `main`:
 
 ```text
 v0.0.1 -> v0.0.2 -> v0.0.3
 ```
 
-Depois do primeiro push, as tags podem ser consultadas em **Releases** ou em
-**Tags** no GitHub. Para a automação funcionar, a configuração do repositório
-deve permitir que workflows gravem conteúdo em `Settings > Actions > General >
-Workflow permissions`, com a opção **Read and write permissions** habilitada.
+O ranking é salvo no navegador com `localStorage` e não é compartilhado entre dispositivos.
 
-## Desenvolvimento e manutenção
+## Tecnologias
 
-Para alterar a aparência ou as regras do jogo, edite `dungeon_do_saber.html`.
-
-Para alterar o conteúdo educacional, edite somente `perguntas.js`.
-
-Ao modificar a lógica, os pontos principais são:
-
-- `spawnWave()`: sorteia a pergunta e cria as runas.
-- `processHit()`: decide o que acontece quando um disparo atinge uma runa.
-- `resetGame()`: reinicia os dados da partida.
-- `update()`: atualiza movimentação, colisões, inimigos e efeitos.
-- `draw()`: renderiza a arena e todos os elementos visuais.
-- `loop()`: executa o ciclo contínuo do jogo.
-
-## Observações
-
-- O arquivo `perguntas.js` deve permanecer com esse nome e na mesma pasta do HTML.
-- O banco é carregado como um script JavaScript comum no navegador.
-- As perguntas são sorteadas aleatoriamente.
-- Atualmente, o campo `m` não força uma distribuição equilibrada entre matérias.
-- Atualmente, o campo `e` não é exibido em uma tela de explicação após a resposta; ele está preparado para uma futura expansão pedagógica.
-- O jogo depende de um navegador com suporte a Canvas, ES6 e Web Audio API.
-
-## Possíveis evoluções
-
-- Exibir a explicação `e` depois de cada resposta.
-- Criar seleção de matéria usando o campo `m`.
-- Implementar sorteio equilibrado entre as disciplinas.
-- Adicionar ranking e armazenamento de recordes com `localStorage`.
-- Criar tela de pausa.
-- Adicionar suporte a toque para dispositivos móveis.
-- Separar o código JavaScript do HTML em módulos independentes.
-- Adicionar testes automatizados para o banco de perguntas e para as regras de pontuação.
+- HTML5 e CSS3
+- JavaScript
+- Canvas 2D
+- Web Audio API
