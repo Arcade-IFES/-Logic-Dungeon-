@@ -204,6 +204,21 @@ http://localhost:8000/dungeon_do_saber.html
 
 O servidor deve ser iniciado dentro da pasta do projeto.
 
+## Versionamento automático
+
+O workflow `.github/workflows/autotag.yml` cria uma tag no GitHub a cada push
+feito na branch `main`. A versão é incrementada automaticamente como `patch`,
+sem exigir palavras especiais na mensagem do commit:
+
+```text
+v0.0.1 -> v0.0.2 -> v0.0.3
+```
+
+Depois do primeiro push, as tags podem ser consultadas em **Releases** ou em
+**Tags** no GitHub. Para a automação funcionar, a configuração do repositório
+deve permitir que workflows gravem conteúdo em `Settings > Actions > General >
+Workflow permissions`, com a opção **Read and write permissions** habilitada.
+
 ## Desenvolvimento e manutenção
 
 Para alterar a aparência ou as regras do jogo, edite `dungeon_do_saber.html`.
