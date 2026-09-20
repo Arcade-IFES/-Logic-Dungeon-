@@ -28,6 +28,18 @@ jobs:
           DEFAULT_BRANCH: main
           RELEASE_BRANCHES: main
 
+      - name: Registrar versao no repositorio
+        if: steps.tag.outputs.new_tag != ''
+        run: |
+          echo "${{ steps.tag.outputs.new_tag }}" > VERSION
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add VERSION
+          git commit -m "chore: versão ${{ steps.tag.outputs.new_tag }} [skip ci]"
+          git push
+
       - name: Criar Release no GitHub
         if: steps.tag.outputs.new_tag != ''
         uses: softprops/action-gh-release@v2
