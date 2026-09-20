@@ -163,6 +163,19 @@
   .go-stat { background: rgba(0,0,0,0.5); padding: 20px; border: 2px solid var(--pillar-neon); border-radius: 12px; min-width: 150px; }
   .go-stat span { display: block; font-size: 13px; color: #aaa; text-transform: uppercase; margin-top: 10px; font-family: 'Fira Code', monospace;}
   .go-stat b { font-family: 'Press Start 2P', monospace; font-size: 20px; color: var(--accent-gold); }
+  .ranking-panel { width: min(760px, 100%); margin-bottom: 24px; }
+  .ranking-title { margin: 0 0 12px; color: var(--accent-gold); font-family: 'Press Start 2P', monospace; font-size: 16px; }
+  .ranking-form { display: flex; justify-content: center; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .ranking-input { width: 90px; padding: 10px; border: 2px solid var(--pillar-neon); border-radius: 6px; background: #12091b; color: #fff; font: bold 20px 'Fira Code', monospace; text-align: center; text-transform: uppercase; }
+  .ranking-input:focus { outline: 2px solid var(--player-magic-core); }
+  .ranking-button { padding: 11px 16px; border: 0; border-radius: 6px; background: var(--pillar-neon); color: #fff; cursor: pointer; font: bold 12px 'Fira Code', monospace; }
+  .ranking-button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .ranking-table { width: 100%; border-collapse: collapse; background: rgba(0,0,0,0.45); font-size: 13px; }
+  .ranking-table th, .ranking-table td { padding: 7px 10px; border-bottom: 1px solid rgba(147, 51, 234, 0.35); text-align: right; }
+  .ranking-table th:first-child, .ranking-table td:first-child, .ranking-table th:nth-child(2), .ranking-table td:nth-child(2) { text-align: left; }
+  .ranking-table th { color: #aaa; font-size: 11px; }
+  .ranking-table td { color: #fff; }
+  .ranking-empty { color: #aaa; padding: 12px; text-align: center; }
 
 </style>
 </head>
@@ -176,6 +189,7 @@
     <div class="hud-top">
       <div class="stats-row">
         <div class="stat-group">
+          <div class="stat-item">FASE: <span id="uiPhase">1</span></div>
           <div class="stat-item">NÍVEL: <span id="uiLevel">1</span></div>
           <div class="stat-item">PONTOS: <span id="uiScore">0</span></div>
           <div class="stat-item combo-text" id="uiComboBox" style="display:none;">COMBO x<span id="uiCombo">1</span></div>
@@ -220,8 +234,22 @@
       
       <div class="game-over-stats">
         <div class="go-stat"><b id="goScore">0</b><span>Pontos Totais</span></div>
+        <div class="go-stat"><b id="goPhase">1</b><span>Fase Máxima</span></div>
         <div class="go-stat"><b id="goLevel">1</b><span>Nível Máximo</span></div>
         <div class="go-stat"><b id="goCombo">1</b><span>Maior Combo</span></div>
+      </div>
+
+      <div class="ranking-panel">
+        <h2 class="ranking-title">RANKING</h2>
+        <form class="ranking-form" id="rankingForm">
+          <label for="rankingName">Suas iniciais:</label>
+          <input class="ranking-input" id="rankingName" maxlength="3" minlength="3" pattern="[A-Za-z]{3}" autocomplete="off" required>
+          <button class="ranking-button" type="submit" id="rankingSubmit">REGISTRAR</button>
+        </form>
+        <table class="ranking-table">
+          <thead><tr><th>#</th><th>Nome</th><th>Pontos</th><th>Fase</th><th>Combo</th></tr></thead>
+          <tbody id="rankingList"></tbody>
+        </table>
       </div>
       
       <button class="btn" id="btnRestart">TENTAR NOVAMENTE</button>
@@ -373,9 +401,9 @@ let cameraShake = 0;
 let hitStop = 0;
 
 let game = {
-  score: 0, level: 1, xp: 0, xpNeeded: 3,
+  score: 0, phase: 1, level: 1, xp: 0, xpNeeded: 3,
   combo: 1, maxCombo: 1,
-  correctAnswers: 0, currentQ: null
+  correctAnswers: 0, currentQ: null, isBossPhase: false, bossStage: 0
 };
 
 // Entidades
@@ -571,7 +599,12 @@ const enemyColors = {
 function spawnWave() {
   const qData = PERGUNTAS[Math.floor(Math.random() * PERGUNTAS.length)];
   game.currentQ = qData;
-  document.getElementById('uiQuestion').innerHTML = qData.q;
+  game.isBossPhase = game.phase % 10 === 0;
+  if (game.isBossPhase && game.bossStage === 0) game.bossStage = 1;
+  if (!game.isBossPhase) game.bossStage = 0;
+  document.getElementById('uiQuestion').innerHTML = game.isBossPhase
+    ? `CHEFE ${game.bossStage}/3 - FASE ${game.phase}: ${qData.q}`
+    : qData.q;
   
   // Opções: 1 certa (sempre ciano), até 3 erradas (rosa, verde, amarelo)
   let options = [{ text: qData.a[0], color: enemyColors.correct, isCorrect: true }];
@@ -582,6 +615,13 @@ function spawnWave() {
   if (errors[2]) options.push({ text: errors[2], color: enemyColors.wrong3, isCorrect: false });
 
   options.sort(() => Math.random() - 0.5);
+  if (game.isBossPhase) {
+    const correctOption = options.find(opt => opt.isCorrect);
+    const wrongOptions = options.filter(opt => !opt.isCorrect);
+    const optionCount = game.bossStage === 1 ? 1 : game.bossStage === 2 ? 2 : 4;
+    options = [correctOption, ...wrongOptions.slice(0, optionCount - 1)]
+      .sort(() => Math.random() - 0.5);
+  }
   
   options.forEach((opt) => {
     let ex, ey, valid = false;
@@ -597,19 +637,28 @@ function spawnWave() {
       if (Math.hypot(ex-player.x, ey-player.y) < 200) valid = false; // Não spawnar grudado no player
     }
     
-    let eSpeed = 0.9 + (game.level * 0.12) + (Math.random()*0.5);
+    const isBoss = game.isBossPhase;
+    let eSpeed = isBoss
+      ? 1.35 + (game.level * 0.16) + (game.phase * 0.035)
+      : 1.15 + (game.level * 0.16) + (game.phase * 0.035) + (Math.random()*0.6);
+    const bossHp = game.bossStage === 1 ? 6 : game.bossStage === 2 ? 3 : 2;
     
     enemies.push({
-      x: ex, y: ey, radius: 22, speed: eSpeed,
+      x: ex, y: ey, radius: isBoss ? (game.bossStage === 1 ? 48 : 34) : 22, speed: eSpeed,
       text: opt.text, isCorrect: opt.isCorrect,
       colorCore: opt.color,
-      anim: Math.random() * 100
+      anim: Math.random() * 100,
+      isBoss,
+      hp: isBoss ? bossHp : 1,
+      maxHp: isBoss ? bossHp : 1,
+      contactDamage: isBoss ? 35 + Math.floor(game.phase / 10) * 5 : 15 + Math.floor(game.phase / 5) * 2
     });
   });
 }
 
 function updateHUD() {
   document.getElementById('uiScore').textContent = game.score;
+  document.getElementById('uiPhase').textContent = game.phase;
   document.getElementById('uiLevel').textContent = game.level;
   document.getElementById('uiXP').textContent = `${game.xp}/${game.xpNeeded}`;
   
@@ -654,6 +703,31 @@ function processHit(enemy, index) {
     playSfx('kill');
     createParticle(enemy.x, enemy.y, '#22d3ee', 40, 8); // Partículas ciano
     screenFlash('rgba(34, 211, 238, 0.15)');
+
+    if (enemy.isBoss && enemy.hp > 1) {
+      enemy.hp--;
+      game.score += 150 * game.combo;
+      game.combo++;
+      if (game.combo > game.maxCombo) game.maxCombo = game.combo;
+      addFloatingText(enemy.x, enemy.y, `CHEFE: ${enemy.hp} HP`, '#fbbf24');
+      cameraShake = 8;
+      updateHUD();
+      return;
+    }
+
+    if (enemy.isBoss && game.bossStage < 3) {
+      game.score += 250 * game.combo;
+      game.combo++;
+      if (game.combo > game.maxCombo) game.maxCombo = game.combo;
+      game.bossStage++;
+      addFloatingText(enemy.x, enemy.y, `FASE DO CHEFE ${game.bossStage}/3`, '#fbbf24');
+      enemies.forEach(e => createParticle(e.x, e.y, '#fbbf24', 20, 6));
+      enemies = [];
+      cameraShake = 12;
+      updateHUD();
+      setTimeout(spawnWave, 800);
+      return;
+    }
     
     let points = 100 * game.combo;
     game.score += points;
@@ -683,6 +757,7 @@ function processHit(enemy, index) {
       if(e !== enemy) createParticle(e.x, e.y, '#444', 15, 4);
     });
     enemies = [];
+    game.phase++;
     updateHUD();
     setTimeout(spawnWave, 800);
     
@@ -702,8 +777,9 @@ function resetGame() {
   player.x = W/2; player.y = H/2 + 50;
   player.dashCooldown = 0; player.dashTimer = 0;
   
-  game.score = 0; game.level = 1; game.xp = 0; game.xpNeeded = 3; 
+  game.score = 0; game.phase = 1; game.level = 1; game.xp = 0; game.xpNeeded = 3;
   game.combo = 1; game.maxCombo = 1; game.correctAnswers = 0;
+  game.isBossPhase = false; game.bossStage = 0;
   
   enemies = []; projectiles = []; particles = []; floatingTexts = []; powerups = [];
   
@@ -716,12 +792,70 @@ function resetGame() {
   state = 'playing';
 }
 
+const RANKING_KEY = 'logicDungeonRanking';
+
+function getRanking() {
+  try {
+    const savedRanking = JSON.parse(localStorage.getItem(RANKING_KEY) || '[]');
+    return Array.isArray(savedRanking) ? savedRanking : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function renderRanking() {
+  const rankingList = document.getElementById('rankingList');
+  const ranking = getRanking()
+    .sort((first, second) => second.score - first.score || second.phase - first.phase || second.combo - first.combo)
+    .slice(0, 10);
+
+  rankingList.innerHTML = '';
+  if (ranking.length === 0) {
+    rankingList.innerHTML = '<tr><td class="ranking-empty" colspan="5">Nenhum registro ainda</td></tr>';
+    return;
+  }
+
+  ranking.forEach((entry, index) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${index + 1}</td><td>${entry.name}</td><td>${entry.score}</td><td>${entry.phase}</td><td>x${entry.combo}</td>`;
+    rankingList.appendChild(row);
+  });
+}
+
+function saveRankingEntry(name) {
+  const normalizedName = name.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 3);
+  if (normalizedName.length !== 3) return false;
+
+  const ranking = getRanking();
+  ranking.push({
+    name: normalizedName,
+    score: game.score,
+    phase: game.phase,
+    combo: game.maxCombo
+  });
+  ranking.sort((first, second) => second.score - first.score || second.phase - first.phase || second.combo - first.combo);
+
+  try {
+    localStorage.setItem(RANKING_KEY, JSON.stringify(ranking.slice(0, 10)));
+  } catch (error) {
+    return false;
+  }
+  return true;
+}
+
 function gameOver() {
   state = 'gameover';
   document.getElementById('screenGameOver').classList.remove('hidden');
   document.getElementById('goScore').textContent = game.score;
+  document.getElementById('goPhase').textContent = game.phase;
   document.getElementById('goLevel').textContent = game.level;
   document.getElementById('goCombo').textContent = "x" + game.maxCombo;
+  document.getElementById('rankingName').value = '';
+  document.getElementById('rankingName').disabled = false;
+  document.getElementById('rankingSubmit').disabled = false;
+  document.getElementById('rankingSubmit').textContent = 'REGISTRAR';
+  renderRanking();
+  document.getElementById('rankingName').focus();
 }
 
 function update() {
@@ -778,10 +912,13 @@ function update() {
     resolveObstacleCollision(e);
     
     if (Math.hypot(player.x - e.x, player.y - e.y) < player.radius + e.radius - 5) {
-      player.takeDamage(15);
+      player.takeDamage(e.contactDamage);
       createParticle(e.x, e.y, e.colorCore, 20, 5);
       enemies.splice(i, 1);
-      if (enemies.length === 0 && state === 'playing') setTimeout(spawnWave, 800);
+      if (enemies.length === 0 && state === 'playing') {
+        game.phase++;
+        setTimeout(spawnWave, 800);
+      }
     }
   }
 
@@ -928,6 +1065,21 @@ function draw() {
     ctx.strokeText(e.text, e.x, e.y - e.radius - 12);
     ctx.fillText(e.text, e.x, e.y - e.radius - 12);
     ctx.shadowBlur = 0;
+
+    if (e.isBoss) {
+      const barWidth = 110;
+      const barY = e.y - e.radius - 36;
+      ctx.fillStyle = '#220000';
+      ctx.fillRect(e.x - barWidth / 2, barY, barWidth, 8);
+      ctx.fillStyle = '#fbbf24';
+      ctx.fillRect(e.x - barWidth / 2, barY, barWidth * (e.hp / e.maxHp), 8);
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(e.x - barWidth / 2, barY, barWidth, 8);
+      ctx.fillStyle = '#fbbf24';
+      ctx.font = 'bold 12px "Press Start 2P", monospace';
+      ctx.fillText('CHEFE', e.x, e.y + e.radius + 22);
+    }
   });
 
   // Particles
@@ -978,6 +1130,23 @@ function loop(timestamp) {
   update();
   draw();
 }
+
+document.getElementById('rankingName').addEventListener('input', event => {
+  event.target.value = event.target.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 3);
+});
+
+document.getElementById('rankingForm').addEventListener('submit', event => {
+  event.preventDefault();
+  const rankingName = document.getElementById('rankingName');
+  if (!saveRankingEntry(rankingName.value)) {
+    rankingName.focus();
+    return;
+  }
+  rankingName.disabled = true;
+  document.getElementById('rankingSubmit').disabled = true;
+  document.getElementById('rankingSubmit').textContent = 'REGISTRADO';
+  renderRanking();
+});
 
 document.getElementById('btnStart').addEventListener('click', resetGame);
 document.getElementById('btnRestart').addEventListener('click', resetGame);
