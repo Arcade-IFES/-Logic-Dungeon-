@@ -1,10 +1,10 @@
 # Logic Dungeon
 
-**Logic Dungeon: O Grimório de Cristal** é um jogo educativo arcade feito com HTML, CSS e JavaScript. Responda perguntas, destrua as runas corretas e sobreviva às ondas de inimigos.
+**Logic Dungeon: Mulheres que Mudaram o Mundo** é um jogo educativo arcade feito com HTML, CSS e JavaScript. Responda perguntas sobre mulheres protagonistas da história, destrua as runas corretas e sobreviva às ondas de inimigos.
 
 ## Como jogar
 
-Abra [logic_dungeon.html](logic_dungeon.html) em um navegador moderno e clique em **ENTRAR NA MASMORRA**.
+Abra [index.html](index.html) em um navegador moderno e clique em **ENTRAR NA MASMORRA**.
 
 | Ação | Controle |
 |---|---|
@@ -17,7 +17,7 @@ Leia a pergunta no topo da tela e atire apenas na runa que representa a resposta
 
 ## Recursos
 
-- Perguntas de diversas áreas do conhecimento.
+- 100 perguntas sobre mulheres revolucionárias, cientistas, artistas, atletas e ativistas.
 - Sistema de pontos, combo, experiência e níveis.
 - Dificuldade progressiva por fase.
 - Fase especial de chefe a cada 10 fases.
@@ -29,26 +29,18 @@ Leia a pergunta no topo da tela e atire apenas na runa que representa a resposta
 
 ```text
 .
-├── logic_dungeon.html       # Jogo, interface e lógica principal
-├── perguntas.js             # Banco de perguntas
+├── index.html               # Jogo completo em uma única página
+├── game.json                # Manifesto do jogo
+├── questoes.json            # Banco documentado com 100 questões
+├── capa.png                 # Imagem de capa
+├── CREDITOS.md              # Autoria e créditos
 ├── .github/workflows/       # Versionamento e releases automáticos
 └── README.md
 ```
 
 ## Banco de perguntas
 
-As perguntas ficam em `perguntas.js`. A resposta correta deve ser sempre o primeiro item do campo `a`:
-
-```javascript
-{
-  q: "Qual é a capital do Brasil?",
-  a: ["Brasília", "Rio de Janeiro", "São Paulo", "Salvador"],
-  e: "Brasília é a capital federal do Brasil.",
-  m: "geografia"
-}
-```
-
-Para adicionar uma pergunta, copie esse formato e mantenha a resposta correta na posição `a[0]`.
+O banco oficial desta versão fica em `questoes.json` e contém 100 questões sobre mulheres, cada uma com quatro alternativas, resposta correta, explicação e fonte. O `index.html` carrega esse arquivo por `fetch` antes de liberar o botão de início.
 
 ## Execução local
 
@@ -60,7 +52,7 @@ Para usar um servidor local:
 python -m http.server 8000
 ```
 
-Depois, acesse `http://localhost:8000/logic_dungeon.html`.
+Depois, acesse `http://localhost:8000/index.html`.
 
 ## Versionamento
 

@@ -1,0 +1,807 @@
+{
+  "titulo": "Mulheres que Mudaram o Mundo",
+  "versao": "1.0.0",
+  "instrucoes": "A alternativa correta é identificada pelo campo resposta_correta.",
+  "questoes": [
+    {
+      "id": 1,
+      "pergunta": "Quem liderou a resistência contra a ocupação romana na Britânia?",
+      "alternativas": ["Boudica", "Cleópatra", "Hipátia", "Joana d’Arc"],
+      "resposta_correta": "Boudica",
+      "explicacao": "Boudica liderou uma revolta contra Roma por volta de 60-61 d.C.",
+      "fonte": "https://www.britannica.com/biography/Boudicca"
+    },
+    {
+      "id": 2,
+      "pergunta": "Qual cientista descobriu a radioatividade natural?",
+      "alternativas": ["Marie Curie", "Ada Lovelace", "Rosalind Franklin", "Lise Meitner"],
+      "resposta_correta": "Marie Curie",
+      "explicacao": "Marie Curie pesquisou a radioatividade e recebeu dois Prêmios Nobel.",
+      "fonte": "https://www.nobelprize.org/prizes/physics/1903/marie-curie/biographical/"
+    },
+    {
+      "id": 3,
+      "pergunta": "Quem é considerada a primeira programadora da história?",
+      "alternativas": ["Ada Lovelace", "Grace Hopper", "Hedy Lamarr", "Katherine Johnson"],
+      "resposta_correta": "Ada Lovelace",
+      "explicacao": "Ada Lovelace escreveu um algoritmo para a máquina analítica de Charles Babbage.",
+      "fonte": "https://www.britannica.com/biography/Ada-Lovelace"
+    },
+    {
+      "id": 4,
+      "pergunta": "Qual ativista recusou ceder seu assento em um ônibus em Montgomery?",
+      "alternativas": ["Rosa Parks", "Angela Davis", "Ella Baker", "Maya Angelou"],
+      "resposta_correta": "Rosa Parks",
+      "explicacao": "Rosa Parks foi presa em 1955; seu ato impulsionou o boicote aos ônibus.",
+      "fonte": "https://www.nps.gov/people/rosa-parks.htm"
+    },
+    {
+      "id": 5,
+      "pergunta": "Quem foi a primeira mulher a ganhar um Prêmio Nobel?",
+      "alternativas": ["Marie Curie", "Bertha von Suttner", "Dorothy Hodgkin", "Jane Addams"],
+      "resposta_correta": "Marie Curie",
+      "explicacao": "Marie Curie recebeu o Nobel de Física em 1903.",
+      "fonte": "https://www.nobelprize.org/prizes/physics/1903/summary/"
+    },
+    {
+      "id": 6,
+      "pergunta": "Qual brasileira assinou a Lei Áurea em 1888?",
+      "alternativas": ["Princesa Isabel", "Dandara", "Anita Garibaldi", "Chiquinha Gonzaga"],
+      "resposta_correta": "Princesa Isabel",
+      "explicacao": "A princesa Isabel sancionou a lei que aboliu a escravidão no Brasil.",
+      "fonte": "https://www12.senado.leg.br/noticias/materias/2015/05/13/ha-127-anos-princesa-isabel-assinava-a-lei-aurea"
+    },
+    {
+      "id": 7,
+      "pergunta": "Quem foi a primeira mulher a votar no Brasil, em 1928?",
+      "alternativas": ["Celina Guimarães", "Bertha Lutz", "Nísia Floresta", "Maria Quitéria"],
+      "resposta_correta": "Celina Guimarães",
+      "explicacao": "Celina Guimarães Viana votou em Mossoró, no Rio Grande do Norte.",
+      "fonte": "https://www.tre-rn.jus.br/o-tre/memoria/linha-do-tempo"
+    },
+    {
+      "id": 8,
+      "pergunta": "Qual aviadora foi a primeira mulher a cruzar sozinha o Atlântico?",
+      "alternativas": ["Amelia Earhart", "Sally Ride", "Valentina Tereshkova", "Bessie Coleman"],
+      "resposta_correta": "Amelia Earhart",
+      "explicacao": "Amelia Earhart realizou o voo solo em 1932.",
+      "fonte": "https://www.si.edu/spotlight/amelia-earhart"
+    },
+    {
+      "id": 9,
+      "pergunta": "Quem foi a primeira mulher negra a publicar um livro no Brasil?",
+      "alternativas": ["Maria Firmina dos Reis", "Carolina Maria de Jesus", "Conceição Evaristo", "Lélia Gonzalez"],
+      "resposta_correta": "Maria Firmina dos Reis",
+      "explicacao": "Maria Firmina dos Reis publicou Úrsula em 1859.",
+      "fonte": "https://www.gov.br/fbn/pt-br/central-de-conteudos/noticias/2022/maria-firmina-dos-reis"
+    },
+    {
+      "id": 10,
+      "pergunta": "Qual escritora nigeriana escreveu Hibisco Roxo?",
+      "alternativas": ["Chimamanda Ngozi Adichie", "Toni Morrison", "Maya Angelou", "Nadine Gordimer"],
+      "resposta_correta": "Chimamanda Ngozi Adichie",
+      "explicacao": "Chimamanda publicou Purple Hibiscus, traduzido como Hibisco Roxo, em 2003.",
+      "fonte": "https://www.britannica.com/biography/Chimamanda-Ngozi-Adichie"
+    },
+    {
+      "id": 11,
+      "pergunta": "Quem foi a primeira mulher no espaço?",
+      "alternativas": ["Valentina Tereshkova", "Sally Ride", "Mae Jemison", "Yuri Gagarin"],
+      "resposta_correta": "Valentina Tereshkova",
+      "explicacao": "Valentina Tereshkova orbitou a Terra em 1963 na missão Vostok 6.",
+      "fonte": "https://www.nasa.gov/people/valentina-tereshkova/"
+    },
+    {
+      "id": 12,
+      "pergunta": "Qual filósofa e matemática dirigiu a escola de Alexandria?",
+      "alternativas": ["Hipátia", "Simone de Beauvoir", "Hannah Arendt", "Ayn Rand"],
+      "resposta_correta": "Hipátia",
+      "explicacao": "Hipátia ensinou matemática, astronomia e filosofia em Alexandria.",
+      "fonte": "https://www.britannica.com/biography/Hypatia"
+    },
+    {
+      "id": 13,
+      "pergunta": "Quem liderou tropas brasileiras na Guerra de Independência da Bahia?",
+      "alternativas": ["Maria Quitéria", "Anita Garibaldi", "Maria Bonita", "Dandara"],
+      "resposta_correta": "Maria Quitéria",
+      "explicacao": "Maria Quitéria lutou disfarçada de soldado e foi condecorada.",
+      "fonte": "https://www.gov.br/defesa/pt-br/assuntos/ensino-e-pesquisa/copy_of_cahm/centro-de-estudos-estrategicos-de-defesa/maria-quiteria"
+    },
+    {
+      "id": 14,
+      "pergunta": "Qual artista mexicana pintou Autorretrato com Colar de Espinhos?",
+      "alternativas": ["Frida Kahlo", "Tarsila do Amaral", "Remedios Varo", "Georgia O’Keeffe"],
+      "resposta_correta": "Frida Kahlo",
+      "explicacao": "A obra de 1940 é um dos autorretratos mais conhecidos de Frida Kahlo.",
+      "fonte": "https://www.moma.org/collection/works/78333"
+    },
+    {
+      "id": 15,
+      "pergunta": "Qual enfermeira brasileira atuou na Guerra do Paraguai?",
+      "alternativas": ["Anna Nery", "Bertha Lutz", "Oswaldo Cruz", "Nísia Floresta"],
+      "resposta_correta": "Anna Nery",
+      "explicacao": "Anna Nery é lembrada como pioneira da enfermagem brasileira na Guerra do Paraguai.",
+      "fonte": "https://www.gov.br/eb/pt-br/centrais-de-conteudo/noticias/2020/anna-nery-patrona-da-enfermagem-brasileira"
+    },
+    {
+      "id": 16,
+      "pergunta": "Qual engenheira da NASA calculou trajetórias para as missões Apollo?",
+      "alternativas": ["Katherine Johnson", "Dorothy Vaughan", "Mary Jackson", "Sally Ride"],
+      "resposta_correta": "Katherine Johnson",
+      "explicacao": "Katherine Johnson calculou trajetórias essenciais para os voos espaciais.",
+      "fonte": "https://www.nasa.gov/centers-and-facilities/langley/katherine-johnson-biography/"
+    },
+    {
+      "id": 17,
+      "pergunta": "Quem foi a primeira mulher a receber o Nobel de Literatura?",
+      "alternativas": ["Selma Lagerlöf", "Virginia Woolf", "Gabriela Mistral", "Toni Morrison"],
+      "resposta_correta": "Selma Lagerlöf",
+      "explicacao": "Selma Lagerlöf recebeu o Nobel de Literatura em 1909.",
+      "fonte": "https://www.nobelprize.org/prizes/literature/1909/summary/"
+    },
+    {
+      "id": 18,
+      "pergunta": "Qual líder quilombola é símbolo da resistência no Quilombo dos Palmares?",
+      "alternativas": ["Dandara dos Palmares", "Tereza de Benguela", "Luísa Mahin", "Esperança Garcia"],
+      "resposta_correta": "Dandara dos Palmares",
+      "explicacao": "Dandara participou da defesa de Palmares e lutou contra a escravidão.",
+      "fonte": "https://www.gov.br/palmares/pt-br/assuntos/noticias/dandara-dos-palmares"
+    },
+    {
+      "id": 19,
+      "pergunta": "Quem foi a primeira mulher a ganhar o Oscar de melhor direção?",
+      "alternativas": ["Kathryn Bigelow", "Greta Gerwig", "Agnès Varda", "Jane Campion"],
+      "resposta_correta": "Kathryn Bigelow",
+      "explicacao": "Kathryn Bigelow venceu em 2010 por Guerra ao Terror.",
+      "fonte": "https://www.oscars.org/oscars/ceremonies/2010"
+    },
+    {
+      "id": 20,
+      "pergunta": "Qual ativista paquistanesa defende a educação de meninas?",
+      "alternativas": ["Malala Yousafzai", "Wangari Maathai", "Nadia Murad", "Rigoberta Menchú"],
+      "resposta_correta": "Malala Yousafzai",
+      "explicacao": "Malala recebeu o Nobel da Paz em 2014 por sua defesa do direito à educação.",
+      "fonte": "https://www.nobelprize.org/prizes/peace/2014/summary/"
+    },
+    {
+      "id": 21,
+      "pergunta": "Qual brasileira foi pioneira na luta pelo voto feminino e fundou a Federação Brasileira pelo Progresso Feminino?",
+      "alternativas": ["Bertha Lutz", "Nísia Floresta", "Pagu", "Leolinda Daltro"],
+      "resposta_correta": "Bertha Lutz",
+      "explicacao": "Bertha Lutz foi bióloga, sufragista e uma das principais articuladoras dos direitos políticos das mulheres no Brasil.",
+      "fonte": "https://www12.senado.leg.br/noticias/especiais/arquivo-s/bertha-lutz-a-pioneira-do-feminismo-no-brasil"
+    },
+    {
+      "id": 22,
+      "pergunta": "Quem escreveu o livro O Segundo Sexo, uma obra marcante do feminismo?",
+      "alternativas": ["Simone de Beauvoir", "Betty Friedan", "bell hooks", "Judith Butler"],
+      "resposta_correta": "Simone de Beauvoir",
+      "explicacao": "Simone de Beauvoir publicou O Segundo Sexo em 1949, analisando a construção social da condição feminina.",
+      "fonte": "https://www.britannica.com/biography/Simone-de-Beauvoir"
+    },
+    {
+      "id": 23,
+      "pergunta": "Qual pesquisadora identificou padrões fundamentais da estrutura do DNA por difração de raios X?",
+      "alternativas": ["Rosalind Franklin", "Barbara McClintock", "Chien-Shiung Wu", "Emmy Noether"],
+      "resposta_correta": "Rosalind Franklin",
+      "explicacao": "As imagens obtidas por Rosalind Franklin foram fundamentais para compreender a estrutura helicoidal do DNA.",
+      "fonte": "https://www.nature.com/articles/d41586-020-00291-4"
+    },
+    {
+      "id": 24,
+      "pergunta": "Qual bióloga ganhou o Nobel por descobrir elementos genéticos móveis, chamados transposons?",
+      "alternativas": ["Barbara McClintock", "Rachel Carson", "Jane Goodall", "Elizabeth Blackburn"],
+      "resposta_correta": "Barbara McClintock",
+      "explicacao": "Barbara McClintock descobriu os elementos genéticos móveis e recebeu o Nobel de Fisiologia ou Medicina em 1983.",
+      "fonte": "https://www.nobelprize.org/prizes/medicine/1983/mcclintock/biographical/"
+    },
+    {
+      "id": 25,
+      "pergunta": "Qual escritora brasileira publicou Quarto de Despejo?",
+      "alternativas": ["Carolina Maria de Jesus", "Clarice Lispector", "Rachel de Queiroz", "Lygia Fagundes Telles"],
+      "resposta_correta": "Carolina Maria de Jesus",
+      "explicacao": "Carolina Maria de Jesus registrou em diários a vida na favela do Canindé, em São Paulo.",
+      "fonte": "https://www.gov.br/bn/pt-br/atuacao/difusao-cultural/exposicoes/linha-do-tempo/carolina-maria-de-jesus"
+    },
+    {
+      "id": 26,
+      "pergunta": "Qual compositora brasileira criou a marcha Ó Abre Alas?",
+      "alternativas": ["Chiquinha Gonzaga", "Villa-Lobos", "Dona Ivone Lara", "Bibi Ferreira"],
+      "resposta_correta": "Chiquinha Gonzaga",
+      "explicacao": "Chiquinha Gonzaga compôs Ó Abre Alas em 1899 e foi uma pioneira como maestrina e compositora.",
+      "fonte": "https://www.gov.br/funarte/pt-br/assuntos/noticias/todas-noticias/chiquinha-gonzaga"
+    },
+    {
+      "id": 27,
+      "pergunta": "Qual ativista brasileira ficou conhecida por sua atuação contra o racismo e pela defesa das mulheres negras?",
+      "alternativas": ["Lélia Gonzalez", "Zuzu Angel", "Cora Coralina", "Nise da Silveira"],
+      "resposta_correta": "Lélia Gonzalez",
+      "explicacao": "Lélia Gonzalez foi intelectual, antropóloga e uma das fundadoras do Movimento Negro Unificado.",
+      "fonte": "https://www.gov.br/palmares/pt-br/assuntos/noticias/25-de-julho-dia-da-mulher-negra-latino-americana-e-caribenha"
+    },
+    {
+      "id": 28,
+      "pergunta": "Qual educadora brasileira fundou a primeira escola para meninas no país?",
+      "alternativas": ["Nísia Floresta", "Anália Franco", "Maria Montessori", "Dorina Nowill"],
+      "resposta_correta": "Nísia Floresta",
+      "explicacao": "Nísia Floresta abriu no Rio de Janeiro, em 1838, um colégio voltado à educação de meninas.",
+      "fonte": "https://www.academia.org.br/academicos/nisia-floresta/biografia"
+    },
+    {
+      "id": 29,
+      "pergunta": "Qual ambientalista queniana fundou o Movimento Cinturão Verde?",
+      "alternativas": ["Wangari Maathai", "Vandana Shiva", "Greta Thunberg", "Rachel Carson"],
+      "resposta_correta": "Wangari Maathai",
+      "explicacao": "Wangari Maathai promoveu o plantio de árvores e os direitos das mulheres no Quênia.",
+      "fonte": "https://www.nobelprize.org/prizes/peace/2004/maathai/facts/"
+    },
+    {
+      "id": 30,
+      "pergunta": "Qual escritora chilena foi a primeira latino-americana a receber o Nobel de Literatura?",
+      "alternativas": ["Gabriela Mistral", "Isabel Allende", "Pablo Neruda", "Alfonsina Storni"],
+      "resposta_correta": "Gabriela Mistral",
+      "explicacao": "Gabriela Mistral recebeu o Nobel de Literatura em 1945 por sua poesia e atuação educacional.",
+      "fonte": "https://www.nobelprize.org/prizes/literature/1945/summary/"
+    },
+    {
+      "id": 31,
+      "pergunta": "Qual pintora brasileira é autora de Abaporu?",
+      "alternativas": ["Tarsila do Amaral", "Anita Malfatti", "Lygia Clark", "Djanira"],
+      "resposta_correta": "Tarsila do Amaral",
+      "explicacao": "Tarsila do Amaral pintou Abaporu em 1928, obra associada ao movimento antropofágico.",
+      "fonte": "https://www.malba.org.ar/en/obra-abaporu/"
+    },
+    {
+      "id": 32,
+      "pergunta": "Qual diretora brasileira foi indicada ao Oscar por seu documentário sobre a crise política do Brasil?",
+      "alternativas": ["Petra Costa", "Anna Muylaert", "Laís Bodanzky", "Tata Amaral"],
+      "resposta_correta": "Petra Costa",
+      "explicacao": "Petra Costa foi indicada ao Oscar de melhor documentário por Democracia em Vertigem, em 2020.",
+      "fonte": "https://www.oscars.org/oscars/ceremonies/2020"
+    },
+    {
+      "id": 33,
+      "pergunta": "Qual mulher foi a primeira pessoa a ganhar dois Prêmios Nobel em áreas científicas diferentes?",
+      "alternativas": ["Marie Curie", "Dorothy Hodgkin", "Irène Joliot-Curie", "Ada Yonath"],
+      "resposta_correta": "Marie Curie",
+      "explicacao": "Marie Curie ganhou o Nobel de Física e o Nobel de Química, feito ainda inédito entre mulheres.",
+      "fonte": "https://www.nobelprize.org/prizes/chemistry/1911/summary/"
+    },
+    {
+      "id": 34,
+      "pergunta": "Qual matemática britânica desenvolveu métodos essenciais para a computação moderna durante a Segunda Guerra Mundial?",
+      "alternativas": ["Joan Clarke", "Mary Cartwright", "Sophie Germain", "Mary Somerville"],
+      "resposta_correta": "Joan Clarke",
+      "explicacao": "Joan Clarke trabalhou em Bletchley Park na decodificação de mensagens alemãs.",
+      "fonte": "https://www.britannica.com/biography/Joan-Clarke"
+    },
+    {
+      "id": 35,
+      "pergunta": "Qual filósofa alemã escreveu Origens do Totalitarismo?",
+      "alternativas": ["Hannah Arendt", "Rosa Luxemburgo", "Edith Stein", "Rosa Parks"],
+      "resposta_correta": "Hannah Arendt",
+      "explicacao": "Hannah Arendt analisou o totalitarismo, o poder e a responsabilidade política em sua obra.",
+      "fonte": "https://www.britannica.com/biography/Hannah-Arendt"
+    },
+    {
+      "id": 36,
+      "pergunta": "Qual líder revolucionária russa foi uma das primeiras mulheres a ocupar um cargo ministerial?",
+      "alternativas": ["Alexandra Kollontai", "Nadezhda Krupskaya", "Emmeline Pankhurst", "Clara Zetkin"],
+      "resposta_correta": "Alexandra Kollontai",
+      "explicacao": "Alexandra Kollontai foi nomeada comissária do povo e defendeu direitos das mulheres após a Revolução Russa.",
+      "fonte": "https://www.britannica.com/biography/Aleksandra-Mikhaylovna-Kollontay"
+    },
+    {
+      "id": 37,
+      "pergunta": "Qual atleta brasileira conquistou o primeiro ouro olímpico individual do país em uma Olimpíada?",
+      "alternativas": ["Maurren Maggi", "Daiane dos Santos", "Hortência Marcari", "Aída dos Santos"],
+      "resposta_correta": "Maurren Maggi",
+      "explicacao": "Maurren Maggi venceu o salto em distância nos Jogos Olímpicos de Pequim, em 2008.",
+      "fonte": "https://olympics.com/en/athletes/maurren-higa-maggi"
+    },
+    {
+      "id": 38,
+      "pergunta": "Qual jogadora brasileira é considerada uma das maiores atletas da história do futebol feminino?",
+      "alternativas": ["Marta", "Formiga", "Cristiane", "Sissi"],
+      "resposta_correta": "Marta",
+      "explicacao": "Marta foi eleita diversas vezes a melhor jogadora do mundo e tornou-se referência global no futebol feminino.",
+      "fonte": "https://www.fifa.com/fifaplus/en/articles/marta-brazil-legend-womens-football"
+    },
+    {
+      "id": 39,
+      "pergunta": "Qual mulher indígena foi a primeira deputada federal indígena do Brasil?",
+      "alternativas": ["Joênia Wapichana", "Sônia Guajajara", "Célia Xakriabá", "Txai Suruí"],
+      "resposta_correta": "Joênia Wapichana",
+      "explicacao": "Joênia Wapichana foi eleita em 2018 e tornou-se a primeira mulher indígena deputada federal do Brasil.",
+      "fonte": "https://www.camara.leg.br/deputados/178957/biografia"
+    },
+    {
+      "id": 40,
+      "pergunta": "Qual mulher foi a primeira presidente eleita do Brasil?",
+      "alternativas": ["Dilma Rousseff", "Ellen Gracie", "Marina Silva", "Marta Suplicy"],
+      "resposta_correta": "Dilma Rousseff",
+      "explicacao": "Dilma Rousseff foi eleita em 2010 e tomou posse como a primeira mulher presidente do Brasil em 2011.",
+      "fonte": "https://www.gov.br/planalto/pt-br/conheca-a-presidencia/biografia-do-presidente"
+    },
+    {
+      "id": 41,
+      "pergunta": "Qual cientista foi pioneira no estudo dos raios cósmicos e da física nuclear no Brasil?",
+      "alternativas": ["Cecilia Payne-Gaposchkin", "Amélia Império Hamburger", "Mayana Zatz", "Suzana Herculano-Houzel"],
+      "resposta_correta": "Amélia Império Hamburger",
+      "explicacao": "Amélia Império Hamburger foi física brasileira e pesquisadora de raios cósmicos.",
+      "fonte": "https://www.fapesp.br/9913"
+    },
+    {
+      "id": 42,
+      "pergunta": "Qual geneticista brasileira é reconhecida por pesquisas sobre doenças hereditárias?",
+      "alternativas": ["Mayana Zatz", "Nise da Silveira", "Johanna Döbereiner", "Drauzio Varella"],
+      "resposta_correta": "Mayana Zatz",
+      "explicacao": "Mayana Zatz coordena pesquisas genéticas e ajudou a identificar genes ligados a doenças neuromusculares.",
+      "fonte": "https://www.britannica.com/biography/Mayana-Zatz"
+    },
+    {
+      "id": 43,
+      "pergunta": "Qual engenheira agrônoma brasileira revolucionou estudos sobre fixação biológica de nitrogênio?",
+      "alternativas": ["Johanna Döbereiner", "Bertha Lutz", "Marta Vannucci", "Margarida Maria Alves"],
+      "resposta_correta": "Johanna Döbereiner",
+      "explicacao": "Johanna Döbereiner desenvolveu pesquisas que contribuíram para a agricultura tropical e a produção de soja.",
+      "fonte": "https://www.embrapa.br/busca-de-noticias/-/noticia/1801135/johanna-dobereiner"
+    },
+    {
+      "id": 44,
+      "pergunta": "Qual astrofísica explicou a composição das estrelas usando espectros de luz?",
+      "alternativas": ["Cecilia Payne-Gaposchkin", "Vera Rubin", "Jocelyn Bell Burnell", "Henrietta Leavitt"],
+      "resposta_correta": "Cecilia Payne-Gaposchkin",
+      "explicacao": "Cecilia Payne-Gaposchkin demonstrou que estrelas são compostas principalmente por hidrogênio e hélio.",
+      "fonte": "https://www.cfa.harvard.edu/news/cecilia-payne-gaposchkin"
+    },
+    {
+      "id": 45,
+      "pergunta": "Qual astrônoma descobriu evidências de matéria escura ao estudar a rotação de galáxias?",
+      "alternativas": ["Vera Rubin", "Annie Jump Cannon", "Henrietta Leavitt", "Jocelyn Bell Burnell"],
+      "resposta_correta": "Vera Rubin",
+      "explicacao": "Vera Rubin observou que as galáxias giravam de modo incompatível com a matéria visível, indicando matéria escura.",
+      "fonte": "https://carnegiescience.edu/observatories/people/vera-rubin"
+    },
+    {
+      "id": 46,
+      "pergunta": "Quem descobriu os primeiros pulsares durante sua pesquisa de doutorado?",
+      "alternativas": ["Jocelyn Bell Burnell", "Vera Rubin", "Lise Meitner", "Katherine Johnson"],
+      "resposta_correta": "Jocelyn Bell Burnell",
+      "explicacao": "Jocelyn Bell Burnell identificou os sinais regulares que levaram à descoberta dos pulsares em 1967.",
+      "fonte": "https://www.cam.ac.uk/research/news/pulsar-discoverer-jocelyn-bell-burnell-wins-2018-special-breakthrough-prize"
+    },
+    {
+      "id": 47,
+      "pergunta": "Qual astrônoma mediu a relação entre o brilho e o período de estrelas variáveis?",
+      "alternativas": ["Henrietta Swan Leavitt", "Annie Jump Cannon", "Maria Mitchell", "Vera Rubin"],
+      "resposta_correta": "Henrietta Swan Leavitt",
+      "explicacao": "Henrietta Leavitt descobriu a relação período-luminosidade das Cefeidas, essencial para medir distâncias cósmicas.",
+      "fonte": "https://www.cfa.harvard.edu/news/henrietta-leavitt"
+    },
+    {
+      "id": 48,
+      "pergunta": "Qual cientista classificou estrelas pelo espectro e criou um sistema usado até hoje?",
+      "alternativas": ["Annie Jump Cannon", "Maria Goeppert-Mayer", "Lynn Margulis", "Eunice Foote"],
+      "resposta_correta": "Annie Jump Cannon",
+      "explicacao": "Annie Jump Cannon criou uma classificação espectral de estrelas organizada pelas letras O, B, A, F, G, K e M.",
+      "fonte": "https://www.si.edu/spotlight/women-in-science/annie-jump-cannon"
+    },
+    {
+      "id": 49,
+      "pergunta": "Qual física explicou a fissão nuclear e ajudou a interpretar sua descoberta?",
+      "alternativas": ["Lise Meitner", "Marie Curie", "Chien-Shiung Wu", "Emmy Noether"],
+      "resposta_correta": "Lise Meitner",
+      "explicacao": "Lise Meitner interpretou teoricamente a fissão nuclear junto com Otto Frisch.",
+      "fonte": "https://www.nobelprize.org/prizes/physics/1944/hahn/biographical/"
+    },
+    {
+      "id": 50,
+      "pergunta": "Qual matemática formulou um importante teorema sobre simetrias e leis de conservação?",
+      "alternativas": ["Emmy Noether", "Sophie Germain", "Mary Cartwright", "Ada Lovelace"],
+      "resposta_correta": "Emmy Noether",
+      "explicacao": "O teorema de Noether conecta simetrias contínuas às leis de conservação da física.",
+      "fonte": "https://www.britannica.com/biography/Emmy-Noether"
+    },
+    {
+      "id": 51,
+      "pergunta": "Qual matemática francesa contribuiu para a teoria da elasticidade e dos números?",
+      "alternativas": ["Sophie Germain", "Emmy Noether", "Maryam Mirzakhani", "Kovalevskaya"],
+      "resposta_correta": "Sophie Germain",
+      "explicacao": "Sophie Germain fez contribuições pioneiras à teoria dos números e à elasticidade.",
+      "fonte": "https://www.britannica.com/biography/Sophie-Germain"
+    },
+    {
+      "id": 52,
+      "pergunta": "Qual matemática foi a primeira mulher a ganhar a Medalha Fields?",
+      "alternativas": ["Maryam Mirzakhani", "Katherine Johnson", "Sophie Germain", "Mary Cartwright"],
+      "resposta_correta": "Maryam Mirzakhani",
+      "explicacao": "Maryam Mirzakhani recebeu a Medalha Fields em 2014 por trabalhos em geometria e sistemas dinâmicos.",
+      "fonte": "https://www.mathunion.org/imu-awards/fields-medal/fields-medal-2014"
+    },
+    {
+      "id": 53,
+      "pergunta": "Qual bióloga estudou chimpanzés por décadas em Gombe, na Tanzânia?",
+      "alternativas": ["Jane Goodall", "Dian Fossey", "Biruté Galdikas", "Rachel Carson"],
+      "resposta_correta": "Jane Goodall",
+      "explicacao": "Jane Goodall transformou o conhecimento sobre chimpanzés ao observar seu comportamento social e uso de ferramentas.",
+      "fonte": "https://janegoodall.org/our-story/about-jane/"
+    },
+    {
+      "id": 54,
+      "pergunta": "Qual pesquisadora protegeu gorilas-das-montanhas e fundou o Karisoke Research Center?",
+      "alternativas": ["Dian Fossey", "Jane Goodall", "Sylvia Earle", "Wangari Maathai"],
+      "resposta_correta": "Dian Fossey",
+      "explicacao": "Dian Fossey dedicou sua vida ao estudo e à proteção dos gorilas em Ruanda.",
+      "fonte": "https://gorillafund.org/dian-fossey/"
+    },
+    {
+      "id": 55,
+      "pergunta": "Qual oceanógrafa ficou conhecida como a 'dama das profundezas'?",
+      "alternativas": ["Sylvia Earle", "Rachel Carson", "Jacques Cousteau", "Ellen Swallow Richards"],
+      "resposta_correta": "Sylvia Earle",
+      "explicacao": "Sylvia Earle é oceanógrafa, exploradora e defensora da conservação dos oceanos.",
+      "fonte": "https://mission-blue.org/about/"
+    },
+    {
+      "id": 56,
+      "pergunta": "Qual autora alertou para os efeitos dos pesticidas no livro Primavera Silenciosa?",
+      "alternativas": ["Rachel Carson", "Jane Goodall", "Vandana Shiva", "Wangari Maathai"],
+      "resposta_correta": "Rachel Carson",
+      "explicacao": "Rachel Carson publicou Primavera Silenciosa em 1962, ajudando a impulsionar o movimento ambientalista moderno.",
+      "fonte": "https://www.fws.gov/story/rachel-carson"
+    },
+    {
+      "id": 57,
+      "pergunta": "Qual médica brasileira revolucionou o tratamento em saúde mental por meio da arte?",
+      "alternativas": ["Nise da Silveira", "Zilda Arns", "Anna Nery", "Mayana Zatz"],
+      "resposta_correta": "Nise da Silveira",
+      "explicacao": "Nise da Silveira utilizou atividades artísticas e criticou métodos violentos no tratamento psiquiátrico.",
+      "fonte": "https://www.gov.br/inca/pt-br/assuntos/noticias/2020/nise-da-silveira"
+    },
+    {
+      "id": 58,
+      "pergunta": "Qual médica fundou a Pastoral da Criança?",
+      "alternativas": ["Zilda Arns", "Nise da Silveira", "Adib Jatene", "Anna Nery"],
+      "resposta_correta": "Zilda Arns",
+      "explicacao": "Zilda Arns criou a Pastoral da Criança, dedicada à saúde e ao desenvolvimento infantil.",
+      "fonte": "https://www.pastoraldacrianca.org.br/quem-somos/zilda-arns"
+    },
+    {
+      "id": 59,
+      "pergunta": "Qual ativista norte-americana ajudou a fundar o Partido dos Panteras Negras?",
+      "alternativas": ["Elaine Brown", "Rosa Parks", "Gloria Steinem", "Angela Davis"],
+      "resposta_correta": "Elaine Brown",
+      "explicacao": "Elaine Brown foi a primeira mulher a liderar o Partido dos Panteras Negras.",
+      "fonte": "https://www.blackpast.org/african-american-history/brown-elaine-1943/"
+    },
+    {
+      "id": 60,
+      "pergunta": "Qual filósofa e ativista escreveu Mulheres, Raça e Classe?",
+      "alternativas": ["Angela Davis", "Audre Lorde", "bell hooks", "Gloria Steinem"],
+      "resposta_correta": "Angela Davis",
+      "explicacao": "Angela Davis relacionou as lutas contra o racismo, o sexismo e a desigualdade de classe.",
+      "fonte": "https://www.britannica.com/biography/Angela-Davis"
+    },
+    {
+      "id": 61,
+      "pergunta": "Qual autora escreveu o ensaio A Mística Feminina?",
+      "alternativas": ["Betty Friedan", "Gloria Steinem", "Simone de Beauvoir", "Kate Millett"],
+      "resposta_correta": "Betty Friedan",
+      "explicacao": "Betty Friedan publicou A Mística Feminina em 1963, questionando os papéis domésticos impostos às mulheres.",
+      "fonte": "https://www.britannica.com/biography/Betty-Friedan"
+    },
+    {
+      "id": 62,
+      "pergunta": "Qual escritora e ativista afro-americana escreveu Irmã Outsider?",
+      "alternativas": ["Audre Lorde", "Toni Morrison", "Maya Angelou", "Alice Walker"],
+      "resposta_correta": "Audre Lorde",
+      "explicacao": "Audre Lorde abordou raça, gênero, sexualidade e identidade em sua poesia e ensaios.",
+      "fonte": "https://www.poetryfoundation.org/poets/audre-lorde"
+    },
+    {
+      "id": 63,
+      "pergunta": "Qual escritora ganhou o Nobel de Literatura em 1993?",
+      "alternativas": ["Toni Morrison", "Alice Walker", "Maya Angelou", "Octavia Butler"],
+      "resposta_correta": "Toni Morrison",
+      "explicacao": "Toni Morrison recebeu o Nobel por romances marcados por força visionária e importância histórica.",
+      "fonte": "https://www.nobelprize.org/prizes/literature/1993/summary/"
+    },
+    {
+      "id": 64,
+      "pergunta": "Qual escritora nigeriana escreveu Americanah?",
+      "alternativas": ["Chimamanda Ngozi Adichie", "Buchi Emecheta", "Nawal El Saadawi", "Tsitsi Dangarembga"],
+      "resposta_correta": "Chimamanda Ngozi Adichie",
+      "explicacao": "Americanah acompanha a experiência de uma mulher nigeriana entre a Nigéria e os Estados Unidos.",
+      "fonte": "https://www.chimamanda.com/americanah/"
+    },
+    {
+      "id": 65,
+      "pergunta": "Qual poeta brasileira foi conhecida como a 'poeta do sertão' e publicou Coração Americano?",
+      "alternativas": ["Cora Coralina", "Cecília Meireles", "Adélia Prado", "Hilda Hilst"],
+      "resposta_correta": "Cora Coralina",
+      "explicacao": "Cora Coralina publicou sua obra madura já idosa e tornou-se referência da poesia brasileira.",
+      "fonte": "https://www.academia.org.br/academicos/cora-coralina/biografia"
+    },
+    {
+      "id": 66,
+      "pergunta": "Qual poeta brasileira escreveu Romanceiro da Inconfidência?",
+      "alternativas": ["Cecília Meireles", "Cora Coralina", "Adélia Prado", "Hilda Hilst"],
+      "resposta_correta": "Cecília Meireles",
+      "explicacao": "Cecília Meireles publicou Romanceiro da Inconfidência em 1953, obra sobre a Inconfidência Mineira.",
+      "fonte": "https://www.academia.org.br/academicos/cecilia-meireles/biografia"
+    },
+    {
+      "id": 67,
+      "pergunta": "Qual escritora brasileira foi a primeira mulher a ocupar uma cadeira na Academia Brasileira de Letras?",
+      "alternativas": ["Rachel de Queiroz", "Clarice Lispector", "Cecília Meireles", "Lygia Fagundes Telles"],
+      "resposta_correta": "Rachel de Queiroz",
+      "explicacao": "Rachel de Queiroz foi eleita para a Academia Brasileira de Letras em 1977.",
+      "fonte": "https://www.academia.org.br/academicos/rachel-de-queiroz/biografia"
+    },
+    {
+      "id": 68,
+      "pergunta": "Qual artista brasileira foi pioneira da arte cinética e criou os Bichos?",
+      "alternativas": ["Lygia Clark", "Lygia Pape", "Tarsila do Amaral", "Tomie Ohtake"],
+      "resposta_correta": "Lygia Clark",
+      "explicacao": "Lygia Clark criou obras participativas, incluindo a série Bichos, que convida à manipulação.",
+      "fonte": "https://www.moma.org/artists/1215"
+    },
+    {
+      "id": 69,
+      "pergunta": "Qual artista brasileira criou a instalação Tropicália?",
+      "alternativas": ["Hélio Oiticica", "Lygia Pape", "Mira Schendel", "Tomie Ohtake"],
+      "resposta_correta": "Hélio Oiticica",
+      "explicacao": "Tropicália, de Hélio Oiticica, inspirou o nome do movimento cultural brasileiro.",
+      "fonte": "https://www.moma.org/collection/works/81196"
+    },
+    {
+      "id": 70,
+      "pergunta": "Qual artista japonesa é conhecida por suas instalações de espelhos e pontos infinitos?",
+      "alternativas": ["Yayoi Kusama", "Marina Abramović", "Louise Bourgeois", "Jenny Holzer"],
+      "resposta_correta": "Yayoi Kusama",
+      "explicacao": "Yayoi Kusama utiliza padrões repetitivos, espelhos e pontos para criar ambientes imersivos.",
+      "fonte": "https://hirshhorn.si.edu/kusama/infinite-kusama/"
+    },
+    {
+      "id": 71,
+      "pergunta": "Qual escultora franco-americana criou a obra Maman, uma enorme aranha?",
+      "alternativas": ["Louise Bourgeois", "Camille Claudel", "Barbara Hepworth", "Niki de Saint Phalle"],
+      "resposta_correta": "Louise Bourgeois",
+      "explicacao": "Maman é uma escultura de Louise Bourgeois que associa a aranha à memória e à maternidade.",
+      "fonte": "https://www.guggenheim.org/artwork/10856"
+    },
+    {
+      "id": 72,
+      "pergunta": "Qual cineasta dirigiu o filme A Hora da Estrela?",
+      "alternativas": ["Suzana Amaral", "Anna Muylaert", "Petra Costa", "Laís Bodanzky"],
+      "resposta_correta": "Suzana Amaral",
+      "explicacao": "Suzana Amaral dirigiu a adaptação de A Hora da Estrela, baseada no romance de Clarice Lispector.",
+      "fonte": "https://www.imdb.com/title/tt0091225/"
+    },
+    {
+      "id": 73,
+      "pergunta": "Qual cineasta neozelandesa venceu o Oscar de direção por O Piano?",
+      "alternativas": ["Jane Campion", "Sofia Coppola", "Ava DuVernay", "Chloé Zhao"],
+      "resposta_correta": "Jane Campion",
+      "explicacao": "Jane Campion venceu o Oscar de direção em 1994 por O Piano.",
+      "fonte": "https://www.oscars.org/oscars/ceremonies/1994"
+    },
+    {
+      "id": 74,
+      "pergunta": "Qual diretora dirigiu o filme Selma, sobre Martin Luther King Jr.?",
+      "alternativas": ["Ava DuVernay", "Chloé Zhao", "Regina King", "Nia DaCosta"],
+      "resposta_correta": "Ava DuVernay",
+      "explicacao": "Ava DuVernay dirigiu Selma, filme de 2014 sobre a campanha pelos direitos de voto liderada por Martin Luther King Jr.",
+      "fonte": "https://www.britannica.com/biography/Ava-DuVernay"
+    },
+    {
+      "id": 75,
+      "pergunta": "Qual diretora ganhou o Oscar de melhor direção por Nomadland?",
+      "alternativas": ["Chloé Zhao", "Jane Campion", "Sofia Coppola", "Greta Gerwig"],
+      "resposta_correta": "Chloé Zhao",
+      "explicacao": "Chloé Zhao venceu o Oscar de direção em 2021 por Nomadland.",
+      "fonte": "https://www.oscars.org/oscars/ceremonies/2021"
+    },
+    {
+      "id": 76,
+      "pergunta": "Qual atriz brasileira foi a primeira latino-americana indicada ao Oscar de melhor atriz?",
+      "alternativas": ["Fernanda Montenegro", "Sônia Braga", "Marília Pêra", "Bibi Ferreira"],
+      "resposta_correta": "Fernanda Montenegro",
+      "explicacao": "Fernanda Montenegro foi indicada por Central do Brasil na cerimônia do Oscar de 1999.",
+      "fonte": "https://www.oscars.org/oscars/ceremonies/1999"
+    },
+    {
+      "id": 77,
+      "pergunta": "Qual atleta norte-americana ganhou três medalhas de ouro nos Jogos Olímpicos de Roma, em 1960?",
+      "alternativas": ["Wilma Rudolph", "Babe Didrikson", "Alice Coachman", "Florence Griffith-Joyner"],
+      "resposta_correta": "Wilma Rudolph",
+      "explicacao": "Wilma Rudolph conquistou três ouros em Roma e tornou-se um símbolo do atletismo feminino.",
+      "fonte": "https://www.olympics.com/en/athletes/wilma-rudolph"
+    },
+    {
+      "id": 78,
+      "pergunta": "Qual foi a primeira mulher negra a conquistar uma medalha de ouro olímpica?",
+      "alternativas": ["Alice Coachman", "Wilma Rudolph", "Althea Gibson", "Florence Griffith-Joyner"],
+      "resposta_correta": "Alice Coachman",
+      "explicacao": "Alice Coachman ganhou o salto em altura nos Jogos de Londres de 1948.",
+      "fonte": "https://www.olympics.com/en/athletes/alice-coachman"
+    },
+    {
+      "id": 79,
+      "pergunta": "Qual ginasta norte-americana ficou conhecida por sua participação nos Jogos Olímpicos de 2016?",
+      "alternativas": ["Simone Biles", "Nadia Comăneci", "Mary Lou Retton", "Gabby Douglas"],
+      "resposta_correta": "Simone Biles",
+      "explicacao": "Simone Biles conquistou várias medalhas e é uma das maiores ginastas da história.",
+      "fonte": "https://www.olympics.com/en/athletes/simone-biles"
+    },
+    {
+      "id": 80,
+      "pergunta": "Qual tenista venceu 24 torneios de Grand Slam em simples?",
+      "alternativas": ["Margaret Court", "Serena Williams", "Steffi Graf", "Martina Navratilova"],
+      "resposta_correta": "Margaret Court",
+      "explicacao": "Margaret Court conquistou 24 títulos de Grand Slam em simples, o maior total da modalidade.",
+      "fonte": "https://www.wtatennis.com/players/200020/margaret-court"
+    },
+    {
+      "id": 81,
+      "pergunta": "Qual tenista norte-americana venceu 23 títulos de Grand Slam em simples?",
+      "alternativas": ["Serena Williams", "Venus Williams", "Billie Jean King", "Chris Evert"],
+      "resposta_correta": "Serena Williams",
+      "explicacao": "Serena Williams conquistou 23 títulos de Grand Slam em simples na Era Aberta.",
+      "fonte": "https://www.wtatennis.com/players/230234/serena-williams"
+    },
+    {
+      "id": 82,
+      "pergunta": "Qual brasileira foi a primeira mulher a comandar a seleção brasileira de futebol?",
+      "alternativas": ["Emily Lima", "Pia Sundhage", "Marta", "Formiga"],
+      "resposta_correta": "Emily Lima",
+      "explicacao": "Emily Lima assumiu a seleção brasileira feminina em 2016, sendo a primeira brasileira no cargo.",
+      "fonte": "https://www.cbf.com.br/selecao-brasileira/noticias/selecao-feminina/emily-lima-e-a-nova-treinadora-da-selecao-brasileira-feminina"
+    },
+    {
+      "id": 83,
+      "pergunta": "Qual ativista sul-africana lutou contra o apartheid e foi chamada de 'mãe da nação'?",
+      "alternativas": ["Winnie Mandela", "Desmond Tutu", "Miriam Makeba", "Nadine Gordimer"],
+      "resposta_correta": "Winnie Mandela",
+      "explicacao": "Winnie Madikizela-Mandela teve atuação importante na resistência ao apartheid na África do Sul.",
+      "fonte": "https://www.britannica.com/biography/Winnie-Madikizela-Mandela"
+    },
+    {
+      "id": 84,
+      "pergunta": "Qual ativista egípcia é considerada uma das fundadoras do feminismo árabe?",
+      "alternativas": ["Huda Sha'arawi", "Nawal El Saadawi", "Doria Shafik", "Mona Eltahawy"],
+      "resposta_correta": "Huda Sha'arawi",
+      "explicacao": "Huda Sha'arawi fundou a União Feminista Egípcia em 1923.",
+      "fonte": "https://www.britannica.com/biography/Huda-Sharawi"
+    },
+    {
+      "id": 85,
+      "pergunta": "Qual ativista iraniana recebeu o Nobel da Paz em 2003?",
+      "alternativas": ["Shirin Ebadi", "Narges Mohammadi", "Maryam Mirzakhani", "Azar Nafisi"],
+      "resposta_correta": "Shirin Ebadi",
+      "explicacao": "Shirin Ebadi recebeu o Nobel da Paz por sua defesa dos direitos humanos e da democracia.",
+      "fonte": "https://www.nobelprize.org/prizes/peace/2003/summary/"
+    },
+    {
+      "id": 86,
+      "pergunta": "Qual ativista iraniana recebeu o Nobel da Paz em 2023?",
+      "alternativas": ["Narges Mohammadi", "Shirin Ebadi", "Masih Alinejad", "Golshifteh Farahani"],
+      "resposta_correta": "Narges Mohammadi",
+      "explicacao": "Narges Mohammadi foi reconhecida por sua luta contra a opressão das mulheres no Irã e pelos direitos humanos.",
+      "fonte": "https://www.nobelprize.org/prizes/peace/2023/summary/"
+    },
+    {
+      "id": 87,
+      "pergunta": "Qual ativista yazidi recebeu o Nobel da Paz em 2018 por combater a violência sexual em guerras?",
+      "alternativas": ["Nadia Murad", "Leymah Gbowee", "Tawakkol Karman", "Shirin Ebadi"],
+      "resposta_correta": "Nadia Murad",
+      "explicacao": "Nadia Murad tornou-se defensora das vítimas de tráfico e violência sexual cometidos pelo Estado Islâmico.",
+      "fonte": "https://www.nobelprize.org/prizes/peace/2018/summary/"
+    },
+    {
+      "id": 88,
+      "pergunta": "Qual ativista liberiana ajudou a mobilizar mulheres pela paz durante a guerra civil?",
+      "alternativas": ["Leymah Gbowee", "Ellen Johnson Sirleaf", "Wangari Maathai", "Miriam Makeba"],
+      "resposta_correta": "Leymah Gbowee",
+      "explicacao": "Leymah Gbowee liderou uma mobilização de mulheres que pressionou pelo fim da guerra na Libéria.",
+      "fonte": "https://www.nobelprize.org/prizes/peace/2011/gbowee/facts/"
+    },
+    {
+      "id": 89,
+      "pergunta": "Qual foi a primeira mulher eleita presidente de um país africano?",
+      "alternativas": ["Ellen Johnson Sirleaf", "Wangari Maathai", "Joyce Banda", "Sahle-Work Zewde"],
+      "resposta_correta": "Ellen Johnson Sirleaf",
+      "explicacao": "Ellen Johnson Sirleaf foi eleita presidente da Libéria em 2005.",
+      "fonte": "https://www.nobelprize.org/prizes/peace/2011/sirleaf/facts/"
+    },
+    {
+      "id": 90,
+      "pergunta": "Qual ativista indígena guatemalteca recebeu o Nobel da Paz em 1992?",
+      "alternativas": ["Rigoberta Menchú", "Berta Cáceres", "Alicia Bárcena", "Myrna Cunningham"],
+      "resposta_correta": "Rigoberta Menchú",
+      "explicacao": "Rigoberta Menchú foi reconhecida por sua defesa dos direitos dos povos indígenas.",
+      "fonte": "https://www.nobelprize.org/prizes/peace/1992/summary/"
+    },
+    {
+      "id": 91,
+      "pergunta": "Qual ambientalista hondurenha lutou contra barragens e recebeu o Goldman Environmental Prize?",
+      "alternativas": ["Berta Cáceres", "Rigoberta Menchú", "Vandana Shiva", "Wangari Maathai"],
+      "resposta_correta": "Berta Cáceres",
+      "explicacao": "Berta Cáceres liderou a defesa do povo Lenca e de seus territórios em Honduras.",
+      "fonte": "https://www.goldmanprize.org/recipient/berta-caceres/"
+    },
+    {
+      "id": 92,
+      "pergunta": "Qual ativista indiana defende a biodiversidade e a soberania das sementes?",
+      "alternativas": ["Vandana Shiva", "Arundhati Roy", "Medha Patkar", "Kiran Bedi"],
+      "resposta_correta": "Vandana Shiva",
+      "explicacao": "Vandana Shiva fundou a Navdanya e atua contra a perda de biodiversidade agrícola.",
+      "fonte": "https://navdanyainternational.org/about-vandana-shiva/"
+    },
+    {
+      "id": 93,
+      "pergunta": "Qual jovem ativista sueca popularizou greves escolares pelo clima?",
+      "alternativas": ["Greta Thunberg", "Luisa Neubauer", "Severn Cullis-Suzuki", "Autumn Peltier"],
+      "resposta_correta": "Greta Thunberg",
+      "explicacao": "Greta Thunberg iniciou uma greve escolar pelo clima em 2018, inspirando o movimento Fridays for Future.",
+      "fonte": "https://fridaysforfuture.org/what-we-do/who-we-are/"
+    },
+    {
+      "id": 94,
+      "pergunta": "Qual educadora italiana criou um método baseado na autonomia e na atividade da criança?",
+      "alternativas": ["Maria Montessori", "Emília Ferreiro", "Anísio Teixeira", "Célestin Freinet"],
+      "resposta_correta": "Maria Montessori",
+      "explicacao": "Maria Montessori desenvolveu um método pedagógico centrado na autonomia e no ambiente preparado.",
+      "fonte": "https://montessori-ami.org/about-montessori/maria-montessori"
+    },
+    {
+      "id": 95,
+      "pergunta": "Qual psicóloga argentina pesquisou como crianças constroem o conhecimento da escrita?",
+      "alternativas": ["Emilia Ferreiro", "Maria Montessori", "Nise da Silveira", "Laura Freixas"],
+      "resposta_correta": "Emilia Ferreiro",
+      "explicacao": "Emilia Ferreiro investigou as hipóteses que as crianças formulam durante a aprendizagem da escrita.",
+      "fonte": "https://www.conicet.gov.ar/emilia-ferreiro/"
+    },
+    {
+      "id": 96,
+      "pergunta": "Qual brasileira criou o Instituto Educacional para Cegos que leva seu nome?",
+      "alternativas": ["Dorina Nowill", "Zilda Arns", "Nise da Silveira", "Anísia Pinheiro Machado"],
+      "resposta_correta": "Dorina Nowill",
+      "explicacao": "Dorina Nowill atuou pela inclusão de pessoas cegas e fundou uma organização dedicada à acessibilidade.",
+      "fonte": "https://fundacaodorina.org.br/a-fundacao/dorina-de-gouvea-nowill/"
+    },
+    {
+      "id": 97,
+      "pergunta": "Qual jornalista brasileira foi símbolo da resistência à ditadura após o desaparecimento do filho?",
+      "alternativas": ["Zuzu Angel", "Elis Regina", "Lygia Fagundes Telles", "Ruth Cardoso"],
+      "resposta_correta": "Zuzu Angel",
+      "explicacao": "Zuzu Angel denunciou internacionalmente o desaparecimento de seu filho Stuart Angel durante a ditadura militar.",
+      "fonte": "https://memoriasdaditadura.org.br/biografias-da-resistencia/zuzu-angel/"
+    },
+    {
+      "id": 98,
+      "pergunta": "Qual compositora e cantora brasileira foi uma das primeiras mulheres a se destacar no samba?",
+      "alternativas": ["Dona Ivone Lara", "Elis Regina", "Carmen Miranda", "Gal Costa"],
+      "resposta_correta": "Dona Ivone Lara",
+      "explicacao": "Dona Ivone Lara foi compositora, cantora e uma das pioneiras femininas das escolas de samba.",
+      "fonte": "https://www.gov.br/funarte/pt-br/assuntos/noticias/todas-noticias/dona-ivone-lara"
+    },
+    {
+      "id": 99,
+      "pergunta": "Qual cantora brasileira foi a primeira mulher a puxar um samba-enredo em um desfile?",
+      "alternativas": ["Leci Brandão", "Dona Ivone Lara", "Clara Nunes", "Alcione"],
+      "resposta_correta": "Leci Brandão",
+      "explicacao": "Leci Brandão construiu uma carreira marcada pelo samba, pela cultura popular e pela defesa dos direitos sociais.",
+      "fonte": "https://www.camara.leg.br/noticias/529867-leci-brandao-recebe-homenagem-na-camara/"
+    },
+    {
+      "id": 100,
+      "pergunta": "Qual mulher foi a primeira brasileira a ganhar uma medalha olímpica?",
+      "alternativas": ["Aída dos Santos", "Maria Esther Bueno", "Maurren Maggi", "Yane Marques"],
+      "resposta_correta": "Aída dos Santos",
+      "explicacao": "Aída dos Santos conquistou a medalha de prata no salto em altura nos Jogos de Tóquio de 1964.",
+      "fonte": "https://www.olympics.com/en/athletes/aida-dos-santos"
+    }
+  ]
+}

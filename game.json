@@ -1,0 +1,23 @@
+{
+  "id": "mulheres-que-mudaram-o-mundo",
+  "nome": "Mulheres que Mudaram o Mundo",
+  "titulo": "Dungeon do Saber: O Grimório de Cristal",
+  "versao": "1.0.0",
+  "idioma": "pt-BR",
+  "arquivo_principal": "index.html",
+  "descricao": "Jogo educativo de perguntas e respostas sobre mulheres que transformaram a história, a ciência, a arte e a sociedade.",
+  "publico": "Ensino fundamental II, ensino médio e público geral",
+  "tema": "Mulheres, protagonismo e conquistas históricas",
+  "quantidade_questoes": 100,
+  "arquivos": {
+    "questoes": "questoes.json",
+    "capa": "capa.png",
+    "creditos": "CREDITOS.md"
+  },
+  "controles": {
+    "movimento": "W, A, S, D",
+    "mira_e_disparo": "Mouse",
+    "dash": "Barra de espaço"
+  },
+  "licenca": "CC BY-NC 4.0"
+}

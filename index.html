@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Dungeon do Saber: O Grimório de Cristal</title>
+<title>Mulheres que Mudaram o Mundo | Dungeon do Saber</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -225,7 +225,7 @@
         <p class="highlight-rule">Mecânica: Leia a pergunta. Atire na runa com a resposta CORRETA (Ciano). Atirar em runas erradas ou ser tocado causa dano e quebra o combo!</p>
       </div>
       
-      <button class="btn" id="btnStart">ENTRAR NA MASMORRA</button>
+      <button class="btn" id="btnStart" disabled>CARREGANDO QUESTÕES...</button>
     </div>
 
     <!-- Game Over -->
@@ -257,7 +257,6 @@
   </div>
 </div>
 
-<script src="perguntas.js"></script>
 <script>
 /* =====================================================================
    ESCALONAMENTO DINÂMICO DO CONTAINER
@@ -271,26 +270,34 @@ window.addEventListener('resize', resizeGame);
 resizeGame();
 
 /* =====================================================================
-  BANCO DE PERGUNTAS EXPANDIDO (substituído por perguntas.js)
-  ===================================================================== */
-/* const DB_QUESTIONS = [
-  // Tecnologia, Dados & Automação
-  { q: "Qual biblioteca do Python é essencial para manipulação estruturada de dados em DataFrames?", c: "Pandas", e: ["Numpy", "Flask", "Selenium"] },
-  { q: "Qual banco de dados NoSQL é estruturado através de nós e relacionamentos (Grafos)?", c: "Neo4j", e: ["MySQL", "MongoDB", "PostgreSQL"] },
-  { q: "No contexto de automação corporativa, o que significa a sigla RPA?", c: "Robotic Process Automation", e: ["Random Process Access", "Rapid Python App", "Remote PC Access"] },
-  { q: "Qual ferramenta automatiza testes e raspagem de dados simulando um navegador web?", c: "Selenium", e: ["Pandas", "Git", "OpenPyXL"] },
-  { q: "Qual comando do Git envia os commits do repositório local para o repositório remoto?", c: "git push", e: ["git pull", "git commit", "git clone"] },
-  { q: "Qual padrão arquitetural de software divide a aplicação em Model, View e Controller?", c: "MVC", e: ["API", "REST", "Microservices"] },
-  { q: "Qual biblioteca Python é comumente usada para leitura e escrita avançada de arquivos Excel?", c: "OpenPyXL", e: ["Requests", "Pygame", "BeautifulSoup"] },
-  { q: "O Docker isola aplicações e suas dependências utilizando qual tipo de estrutura?", c: "Containers", e: ["Máquinas Virtuais", "Proxies", "Hypervisors"] },
-  
-  // Conhecimentos Gerais, Lógica & Esportes
-  { q: "Na corrida, como é chamada a métrica que indica o tempo gasto para percorrer 1 quilômetro?", c: "Pace", e: ["BPM", "Sprint", "Vo2 Máx"] },
-  { q: "Qual estrutura de repetição em linguagens de programação itera sobre os itens de uma coleção?", c: "for", e: ["while", "if", "loop"] },
-  { q: "Qual formato leve de troca de dados (nativamente JavaScript) é o padrão em APIs REST?", c: "JSON", e: ["XML", "CSV", "YAML"] },
-  { q: "Qual é o valor aproximado da aceleração da gravidade na Terra?", c: "9,8 m/s²", e: ["5,0 m/s²", "12,4 m/s²", "3,14 m/s²"] },
-  { q: "Em probabilidade, qual a chance de rolar um número par em um dado comum de 6 lados?", c: "50%", e: ["33%", "25%", "66%"] }
-]; */
+   BANCO DE PERGUNTAS
+   O conteúdo oficial fica em questoes.json; este arquivo apenas o carrega.
+   ===================================================================== */
+let PERGUNTAS = [];
+
+async function carregarPerguntas() {
+  const botao = document.getElementById('btnStart');
+  try {
+    const response = await fetch('questoes.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const banco = await response.json();
+    if (!Array.isArray(banco.questoes) || banco.questoes.length < 20) {
+      throw new Error('questoes.json precisa conter pelo menos 20 questões');
+    }
+    PERGUNTAS = banco.questoes.map(questao => ({
+      q: questao.pergunta,
+      a: questao.alternativas,
+      e: questao.explicacao,
+      m: 'mulheres'
+    }));
+    botao.disabled = false;
+    botao.textContent = 'ENTRAR NA MASMORRA';
+  } catch (error) {
+    console.error('Não foi possível carregar questoes.json:', error);
+    document.getElementById('uiQuestion').textContent = 'Erro ao carregar o banco de questões. Recarregue a página.';
+    botao.textContent = 'BANCO INDISPONÍVEL';
+  }
+}
 
 /* =====================================================================
    SINTETIZADOR DE ÁUDIO RETRÔ (JUICE)
@@ -1151,6 +1158,7 @@ document.getElementById('rankingForm').addEventListener('submit', event => {
 document.getElementById('btnStart').addEventListener('click', resetGame);
 document.getElementById('btnRestart').addEventListener('click', resetGame);
 
+carregarPerguntas();
 requestAnimationFrame(loop);
 
 </script>
