@@ -131,6 +131,15 @@
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     z-index: 20; text-align: center; padding: 40px;
   }
+  #screenMenu {
+    background:
+      linear-gradient(rgba(6, 2, 12, 0.68), rgba(6, 2, 12, 0.92)),
+      url("capa.png") center / cover no-repeat;
+  }
+  #screenPause {
+    background: rgba(6, 2, 12, 0.82);
+    backdrop-filter: blur(3px);
+  }
   .screen.hidden { display: none; }
   
   .title {
@@ -228,6 +237,13 @@
       <button class="btn" id="btnStart" disabled>CARREGANDO QUESTÕES...</button>
     </div>
 
+    <!-- Pausa -->
+    <div class="screen hidden" id="screenPause">
+      <h1 class="title">JOGO PAUSADO</h1>
+      <p class="subtitle">A masmorra está congelada.</p>
+      <p class="highlight-rule"><kbd>ESC</kbd> Retomar o jogo</p>
+    </div>
+
     <!-- Game Over -->
     <div class="screen hidden" id="screenGameOver">
       <h1 class="title" style="color: var(--accent-red); text-shadow: 4px 4px 0 #550000, 0 0 30px rgba(255,0,0,0.6);">SUA LUZ SE APAGOU</h1>
@@ -303,6 +319,9 @@ async function carregarPerguntas() {
    SINTETIZADOR DE ÁUDIO RETRÔ (JUICE)
    ===================================================================== */
 let audioCtx = null;
+let musicTimer = null;
+let musicStep = 0;
+
 function playSfx(type) {
   try {
     if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -366,6 +385,55 @@ function playSfx(type) {
   } catch(e) {}
 }
 
+const musicNotes = [
+  261.63, 0, 329.63, 0, 392.00, 0, 329.63, 0,
+  293.66, 0, 349.23, 0, 440.00, 0, 349.23, 0
+];
+
+function playMusicStep() {
+  if (!audioCtx || audioCtx.state !== 'running') return;
+
+  const frequency = musicNotes[musicStep % musicNotes.length];
+  musicStep++;
+  if (!frequency) return;
+
+  const now = audioCtx.currentTime;
+  const oscillator = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  oscillator.type = 'triangle';
+  oscillator.frequency.setValueAtTime(frequency, now);
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(0.035, now + 0.02);
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.22);
+  oscillator.connect(gain);
+  gain.connect(audioCtx.destination);
+  oscillator.start(now);
+  oscillator.stop(now + 0.24);
+}
+
+function startMusic() {
+  try {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    if (musicTimer !== null) return;
+
+    musicStep = 0;
+    playMusicStep();
+    musicTimer = window.setInterval(playMusicStep, 250);
+  } catch (error) {
+    console.error('Não foi possível iniciar a trilha sonora:', error);
+  }
+}
+
+function stopMusic() {
+  if (musicTimer !== null) {
+    window.clearInterval(musicTimer);
+    musicTimer = null;
+  }
+}
+
 /* =====================================================================
    MOTOR DO JOGO & LÓGICA PRINCIPAL
    ===================================================================== */
@@ -378,6 +446,11 @@ const mouse = { x: W/2, y: H/2, down: false };
 
 window.addEventListener('keydown', e => {
   const k = e.key.toLowerCase();
+  if (k === 'escape') {
+    e.preventDefault();
+    togglePause();
+    return;
+  }
   if (k === 'w') keys.w = true;
   if (k === 'a') keys.a = true;
   if (k === 's') keys.s = true;
@@ -406,6 +479,7 @@ let state = 'menu';
 let lastTime = 0;
 let cameraShake = 0;
 let hitStop = 0;
+let pendingWave = false;
 
 let game = {
   score: 0, phase: 1, level: 1, xp: 0, xpNeeded: 3,
@@ -419,6 +493,34 @@ let projectiles = [];
 let particles = [];
 let floatingTexts = [];
 let powerups = [];
+
+function scheduleNextWave() {
+  setTimeout(() => {
+    if (state === 'playing') {
+      spawnWave();
+    } else if (state === 'paused') {
+      pendingWave = true;
+    }
+  }, 800);
+}
+
+function togglePause() {
+  if (state === 'playing') {
+    state = 'paused';
+    keys.w = keys.a = keys.s = keys.d = false;
+    mouse.down = false;
+    stopMusic();
+    document.getElementById('screenPause').classList.remove('hidden');
+  } else if (state === 'paused') {
+    state = 'playing';
+    startMusic();
+    document.getElementById('screenPause').classList.add('hidden');
+    if (pendingWave) {
+      pendingWave = false;
+      spawnWave();
+    }
+  }
+}
 
 const pillars = [
   {x: 250, y: 200, r: 40}, {x: 750, y: 200, r: 40},
@@ -732,7 +834,7 @@ function processHit(enemy, index) {
       enemies = [];
       cameraShake = 12;
       updateHUD();
-      setTimeout(spawnWave, 800);
+      scheduleNextWave();
       return;
     }
     
@@ -766,7 +868,7 @@ function processHit(enemy, index) {
     enemies = [];
     game.phase++;
     updateHUD();
-    setTimeout(spawnWave, 800);
+    scheduleNextWave();
     
   } else {
     playSfx('hit');
@@ -787,16 +889,19 @@ function resetGame() {
   game.score = 0; game.phase = 1; game.level = 1; game.xp = 0; game.xpNeeded = 3;
   game.combo = 1; game.maxCombo = 1; game.correctAnswers = 0;
   game.isBossPhase = false; game.bossStage = 0;
+  pendingWave = false;
   
   enemies = []; projectiles = []; particles = []; floatingTexts = []; powerups = [];
   
   document.getElementById('screenMenu').classList.add('hidden');
+  document.getElementById('screenPause').classList.add('hidden');
   document.getElementById('screenGameOver').classList.add('hidden');
   document.getElementById('uiComboBox').style.display = 'none';
   
   updateHUD();
   spawnWave();
   state = 'playing';
+  startMusic();
 }
 
 const RANKING_KEY = 'logicDungeonRanking';
@@ -852,6 +957,7 @@ function saveRankingEntry(name) {
 
 function gameOver() {
   state = 'gameover';
+  stopMusic();
   document.getElementById('screenGameOver').classList.remove('hidden');
   document.getElementById('goScore').textContent = game.score;
   document.getElementById('goPhase').textContent = game.phase;
@@ -924,7 +1030,7 @@ function update() {
       enemies.splice(i, 1);
       if (enemies.length === 0 && state === 'playing') {
         game.phase++;
-        setTimeout(spawnWave, 800);
+        scheduleNextWave();
       }
     }
   }
